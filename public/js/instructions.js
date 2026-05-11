@@ -4,11 +4,11 @@ let currentIndex = 0;
 const imgEl = document.getElementById("slide-image");
 
 async function loadSlideshow() {
-  const res = await fetch("../resource/slideshow/fileCollect.json"); //
+  const res = await fetch("../resource/fileCollect.json"); //
   const data = await res.json();
 
   images = data.images.map(
-    (img) => `../resource/slideshow/${img}`
+    (img) => `../resource/${img}`
   );
 
   showImage(0);
