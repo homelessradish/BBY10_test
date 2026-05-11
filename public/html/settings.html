@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Settings</title>
+    
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.23.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.23.1/mapbox-gl.js"></script>
+</head>
+
+<body>
+
+<div class="settings-container">
+
+    <h1>Settings</h1>
+
+    <label for="address-input">Home Address</label>
+    <input
+            id="address-input"
+            type="text"
+            placeholder="Enter your address"
+    />
+
+    <button id="save-address">
+        Save Address
+    </button>
+
+    <a href = "../html/index.html">
+    <button>
+        Home page
+    </button></a>
+
+
+    <hr />
+
+    <label>
+        Distance radius:
+        <span id="radius-value">5</span> km
+    </label>
+
+    <input
+            id="radius-slider"
+            type="range"
+            min="1"
+            max="50"
+            value="5"
+    />
+
+    <p id="status"></p>
+
+</div>
+
+<script type="module" src="../js/settings.js"></script>
+
+</body>
+</html>

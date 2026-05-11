@@ -1,0 +1,212 @@
+
+body {
+    background-color: AntiqueWhite;
+
+   }
+
+
+
+/**
+color nav bar
+**/
+.Nav_Bar {
+    background-color: BlanchedAlmond;
+    overflow: hidden;
+    border-style: hidden hidden solid hidden;
+    border-color: white;
+
+    }
+
+
+/**
+style buttons in  nav bar, hardcoded values should be changed later
+**/
+.Nav_Bar a {
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: black;
+
+    }
+
+/**
+change color when hover
+**/
+.Nav_Bar a:hover{
+    background-color: black;
+    color: white;
+
+    }
+
+
+/**
+change color when click
+**/
+.Nav_Bar a:active{
+    background-color: black;
+    color: white;
+
+    }
+
+/**
+color nav bar, hardcoded values should be changed later
+**/
+.Enter_User_Section a{
+        float: right;
+        text-align: center;
+        padding: 14px 16px;
+        font-size: 17px;
+        text-decoration: none;
+        color: black;
+
+    }
+
+/**
+change color when hover for sign up section
+**/
+.Enter_User_Section a:hover{
+    background-color: black;
+    color: white;
+
+    }
+
+
+/**
+change color when click for sign up section
+**/
+.Enter_User_Section a:active{
+    background-color: Aquamarine;
+    color: white;
+
+    }
+
+
+/**
+style main central box
+**/
+.Central_Element {
+    background-color: #d2a679;
+    color: white;
+    text-align: center;
+    border: 3px solid white;
+    border-radius: 15px;
+    margin-top: 80px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+/**
+get small blurb to be on bottom section of central element
+**/
+.Central_Element p {
+    float: bottom;
+}
+
+
+/**
+give map box a box to have the map in, and style
+**/
+ #map {
+    width: 50vw;
+    height: 50vh;
+    overflow: hidden;
+    background-color: black;
+    margin-top: 80px;
+    left: 25%;
+    border-style: solid solid solid solid;
+    border-color: Brown;
+    border-radius: 10px;
+    border-width: 8px;
+  }
+
+/* Instructions overlay that sits on top of the map */
+#instructions {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  width: 20%;
+  max-height: calc(100% - 40px);
+  padding: 20px;
+  overflow: hidden;
+  font-size: 10pt;
+  font-family: sans-serif;
+  background-color: white;
+  border-style: solid solid solid solid;
+  border-radius: 10px;
+  border-width: 8px;
+}
+
+/*
+pick location button styling
+*/
+#set-location-btn {
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  z-index: 1000;
+
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #3887be;
+  color: white;
+  cursor: pointer;
+
+  display: none;
+}
+
+/*
+css for info card on side after click on icon
+*/
+.info-card {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+  font-family: sans-serif;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/*
+style settings button
+*/
+.settings-btn {
+  display: inline-block;
+
+  padding: 8px 14px;
+  margin-left: 10px;
+
+  background-color: #3887be;
+  color: white;
+
+  border-radius: 6px;
+  text-decoration: none;
+
+  font-family: sans-serif;
+  font-size: 14px;
+
+  transition: background 0.2s ease;
+}
+
+.settings-btn:hover {
+  background-color: #2f6f99;
+}
+
+.settings-btn:active {
+  transform: scale(0.97);
+}

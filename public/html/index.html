@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    template metadata
+    -->
+    <title>template title</title>
+    <meta charset = "UTF-8">
+    <meta name = "viewport">
+
+    <!--
+    reference style/logic file in src folder
+    -->
+    <link rel = "stylesheet" href = "../css/Index_Style.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.23.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.23.1/mapbox-gl.js"></script>
+    <script type="module" src="../js/Index_Script.js"></script>
+
+
+
+</head>
+<body>
+
+<!--
+simple nav bar
+-->
+<div class = "Nav_Bar">
+
+    <a href = "./settings.html" class = "settings-btn">Settings</a>
+    <a href = "./instructions.html" class = "settings-btn">Instructions</a>
+    <a href = "">button3</a>
+
+
+    <div class = "Enter_User_Section">
+    <a href = "./Login.html">Sign Up / Log In</a>
+    </div>
+
+</div>
+
+
+<!-- MAP SECTION -->
+<main id="map-container">
+
+    <div id="map"></div>
+    <div id="instructions"></div>
+</main>
+
+<button id="set-location-btn">
+    Set as My Location
+</button>
+
+
+
+<div id="info-card" class="info-card hidden"></div>
+</body>
+</html>

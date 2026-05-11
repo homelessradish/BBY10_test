@@ -1,0 +1,183 @@
+:root {
+  --green-light: #d4f0dc;
+  --green-mid:   #a8d9b4;
+  --green-dark:  #62c59d;
+  --bg:          #f0faf3;
+  --card-bg:     #ffffff;
+  --text:        #1a1a1a;
+  --subtext:     #666666;
+  --tag-bg:      #1a1a1a;
+  --tag-text:    #ffffff;
+  --radius-card: 16px;
+  --radius-btn:  20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--green-dark), var(--green-light));
+  color: var(--text);
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+.header {
+  background: var(--green-dark);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-title {
+  flex: 1;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.saved-btn {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.cards-grid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 16px 24px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.card-image-wrapper {
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.bookmark-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 12px 14px 14px;
+}
+
+.card-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--subtext);
+  margin-bottom: 10px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-btn);
+}
+
+.db-placeholder,
+.empty-message {
+  text-align: center;
+  color: var(--subtext);
+  font-size: 14px;
+  padding: 40px 0;
+}

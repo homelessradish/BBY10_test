@@ -1,0 +1,276 @@
+/** ------------------------------------------------------------------------
+ * CSS Naming Convention: BEM (Block, Element, Modifier)
+ * --------------------------------------------------------------------------
+ *  B (Block): A standalone entity that is meaningful on its own.
+ *
+ *  - Use class selectors ONLY (No IDs, No tags).
+ *  ex) .btn, .nav, .menu, .search-form
+ * 
+ *  E (Element): Parts of a block and have no standalone meaning. 
+ *
+ *  - Semantically tied to its block. 
+ *  - Should be nested inside a block in HTML.
+ *  ex) .btn__text, .nav__item, .nav__link
+ *
+ *  M (Modifier): Flags on blocks or elements. 
+ * 
+ *  - Use them to change appearancem, behavior or state.
+ *  ex) .btn--large, .btn--red, .nav__link--active  
+ * 
+ *  Reference: https://getbem.com/naming/
+ */
+
+/**
+ *  Reference:
+ *  Previous comp1537 Web Assignment 1-6, COMP 1537 Lab examples 
+ *  How to create an overlay image title:
+ *  https://www.w3schools.com/howto/howto_css_image_overlay_title.asp
+ *  Google search: How to fill in google icon
+ *  Problem-solving: 
+ *  background-gradient: https://gemini.google.com/share/30aadd0a98a5
+ */
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-black: #050a13;
+  --color-primary-green: #80bba2;
+  --color-green-dark: #0b754a;
+  --color-green-light: #a7faca;
+  --color-orange-dark: #ffc144;
+  --color-orange-light: #ffeba5;
+  --color-cream: #fbfae6;
+  --color-brown: #c18340;
+
+  /* App Theme Color examples */
+  --color-primary: var(--color-primary-green);
+  --color-primary-variant: var(--color-green-light);
+  --color-accent: var(--color-orange-dark);
+  --color-text: var(--color-black);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Whole page */
+.saved-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 117, 74, 0.6) 0%,
+    rgba(167, 250, 202, 0.37) 50%,
+    rgba(167, 250, 202, 0) 88%
+  );
+  font-family: "Darker Grotesque";
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 24px 20px;
+  gap: 16px;
+}
+
+.header__top {
+  display: flex;
+  flex-direction: row;
+}
+
+.header__back-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-black);
+}
+
+.header__title {
+  margin-bottom: 8px;
+}
+
+.header__bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.header__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-black);
+  border-radius: 20px;
+  padding: 8px 20px 8px 20px;
+  border: none;
+  color: var(--color-white);
+  opacity: 90%;
+}
+
+.header__filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  min-width: 60px;
+}
+
+.material-symbols-outlined-filter {
+  font-size: 28px;
+  width: 60px;
+  padding: 5px 5px 5px 5px;
+}
+
+/* Card Section */
+.section__saved-page {
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card__image-container {
+  width: 100%;
+}
+
+.card__image-container img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  /* height: 200px; */
+  object-fit: cover;
+  display: flex;
+}
+
+.card__save-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+}
+
+.material-symbols-outlined-bookmark {
+  font-size: 32px;
+  color: var(--color-white);
+  font-variation-settings: "FILL" 1;
+}
+
+/* unsave bookmark */
+.material-symbols-outlined-bookmark-unsave {
+  font-size: 32px;
+  color: var(--color-white);
+}
+
+.card__text-container {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-white);
+}
+
+.card__title {
+  font-size: 1.4rem;
+}
+
+/* Media Query */
+@media (max-width: 600px) {
+  .header__title {
+    font-size: 3rem;
+  }
+
+  .section__saved-page {
+    width: 100%;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 601px) {
+  .header__title {
+    font-size: 4rem;
+  }
+
+  .section__saved-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .header__btn {
+    font-size: 1.2rem;
+    padding: 10px 28px;
+  }
+
+  .material-symbols-outlined-filter {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .header__title {
+    font-size: 4.3rem;
+  }
+
+  .section__saved-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .header__btn {
+    font-size: 1.8rem;
+    padding: 10px 28px;
+  }
+
+  .material-symbols-outlined-filter {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .header__title {
+    font-size: 5rem;
+  }
+
+  .section__saved-page {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .header__btn {
+    font-size: 2.5rem;
+    padding: 10px 28px;
+  }
+
+  .material-symbols-outlined-filter {
+    font-size: 60px;
+    margin-right: 30px;
+  }
+}

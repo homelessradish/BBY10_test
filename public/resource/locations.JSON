@@ -1,0 +1,44 @@
+{
+  "name": "Richmond Food Bank",
+  "address": "5800 Cedarbridge Way #100, Richmond, BC V6X 2A7",
+
+  "geo": {
+    "type": "Point",
+    "coordinates": [-123.14173058943597, 49.172961254929774]
+  },
+
+  "hours": {
+    "sun": null,
+
+    "mon": [
+      { "open": "09:00", "close": "11:00" },
+      { "open": "12:00", "close": "16:00" }
+    ],
+
+    "tue": [
+      { "open": "09:00", "close": "16:00" }
+    ],
+
+    "wed": [
+      { "open": "09:00", "close": "16:00" }
+    ],
+
+    "thu": [
+      { "open": "09:00", "close": "16:00" }
+    ],
+
+    "fri": [
+      { "open": "09:00", "close": "16:00" }
+    ],
+
+    "sat": [
+      { "open": "09:00", "close": "14:00" }
+    ]
+  },
+
+  "tags": ["Food Bank"],
+
+  "links": ["https://rfbs.org/"],
+
+  "notes": ["Must book appointment"]
+}

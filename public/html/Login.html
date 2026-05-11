@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Darker Grotesque"
+      rel="stylesheet"
+    />
+    <title>FoodHubBC</title>
+
+    <style>
+      html,
+      body {
+        height: 100%; /* makes sure background gradient encompasses the whole screen */
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+          to bottom,
+          #80bba2 0%,
+          #80bba2 70%,
+          rgba(150, 170, 190, 0.575) 85%,
+          rgba(180, 140, 165, 0.42) 90%,
+          rgba(3, 70, 42, 0.18) 100%
+        );
+
+        font-family: "Darker Grotesque";
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .headerContainer {
+        width: 100%;
+        height: 300px;
+        background-image: url("../img/HeaderImage.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .headerTitle {
+        font-size: 6rem;
+        color: white;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      }
+
+      .mainContainer {
+        margin-top: 60px;
+        margin-bottom: 20px;
+        max-width: 300px;
+        padding: 40px;
+        border: 2px solid white;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+        background-image:
+          linear-gradient(rgba(226, 226, 226, 0.123), rgba(245, 245, 245, 0.4)),
+          url("../img/BlurredOpaqueImage.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: slidingForm 0.9s ease-in-out;
+      }
+
+      h2 {
+        text-align: left;
+        color: white;
+        align-self: flex-start;
+        margin-bottom: 5px;
+        margin-top: 1px;
+      }
+
+      form {
+        font-size: 20pt;
+        padding: 5px 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 25px;
+      }
+
+      input {
+        font-family: "Darker Grotesque";
+        font-size: 23pt;
+        border-radius: 20px;
+        padding: 8px 2px 8px 12px;
+        box-sizing: border-box; /* makes sure input never overflows its container on small screens */
+        border: 1px solid;
+        border-color: white;
+        background-color: rgba(255, 255, 255, 0.39);
+      }
+
+      #loginButton,
+      #signupButton {
+        font-family: "Darker Grotesque";
+        font-weight: bold;
+        font-size: 20pt;
+        color: white;
+        border-radius: 30px;
+        border: 2px solid;
+        border-color: white;
+        background-color: rgba(255, 255, 255, 0.274);
+        padding: 3px 6px 5px 6px;
+        width: 120px;
+        margin-top: 10px;
+        align-self: center;
+      }
+
+      input:focus,
+      button:hover {
+        outline: none; /* removes the default iphone blue border */
+        border-color: white;
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .sliderContainer {
+        background: rgba(0, 0, 0, 0.308);
+        border: 2px solid;
+        border-color: rgba(0, 0, 0, 0.356);
+        border-radius: 100px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 4px;
+        padding: 3px;
+      }
+
+      #loginSlider,
+      #signupSlider {
+        text-align: center;
+        font-size: 20pt;
+        color: white;
+        font-family: "Darker Grotesque";
+        border: solid;
+        border-radius: 100px;
+        flex: 1;
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      #signupSlider {
+        color: white;
+        font-size: 20pt;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px; /*controls sizing of entire slider container*/
+      }
+
+      .active {
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 100px;
+        color: white;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      }
+
+      .inactive {
+        background-color: transparent;
+      }
+
+      #loginSlider:active,
+      #signupSlider:active {
+        background-color: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+        transition:
+          background-color 0.2s ease,
+          box-shadow 0.2s ease;
+        transform: scale(0.1);
+        transition: transform 0.3s ease; /* adds cute pop animation to the text by enlarging it */
+      }
+
+      .fade {
+        animation: fadingForm 1.5s ease;
+      }
+
+      /* creates the little fading animation for the forms */
+      @keyframes fadingForm {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slidingForm {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .headerTitle {
+          font-size: 4.5rem;
+        }
+
+        .mainContainer {
+          width: 90%;
+          padding: 25px;
+          margin-top: 35px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .headerTitle {
+          font-size: 7rem;
+        }
+
+        .mainContainer {
+          max-width: 380px;
+          padding: 55px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        input {
+          font-size: 24pt;
+        }
+
+        #loginButton,
+        #signupButton {
+          font-size: 22pt;
+          padding: 6px 10px;
+          width: 140px;
+        }
+      }
+
+      @media (max-width: 900px) and (min-width: 601px) {
+        .headerTitle {
+          font-size: 5rem;
+        }
+
+        .mainContainer {
+          max-width: 330px;
+          padding: 35px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .headerTitle {
+          font-size: 3.5rem;
+        }
+
+        .mainContainer {
+          width: 95%;
+          padding: 20px;
+        }
+
+        input {
+          font-size: 20pt;
+        }
+
+        #loginButton,
+        #signupButton {
+          font-size: 18pt;
+          width: 110px;
+        }
+      }
+
+      @media (max-width: 350px) {
+        .headerTitle {
+          font-size: 3rem;
+        }
+
+        input {
+          font-size: 18pt;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="headerContainer">
+      <div class="headerTitle">FoodHubBC</div>
+    </div>
+
+    <div class="mainContainer">
+      <div class="sliderContainer">
+        <p id="signupSlider">Signup</p>
+        <button id="loginSlider">Login</button>
+      </div>
+
+      <div id="loginForm">
+        <form action="/api/login" method="post">
+          <h2>Login</h2>
+          <input name="loginName" type="text" placeholder="username" />
+          <input name="loginPassword" type="password" placeholder="password" />
+          <button id="loginButton" type="submit">Login</button>
+        </form>
+      </div>
+
+      <div id="signupForm" style="display: none">
+        <form action="/api/signup" method="post">
+          <h2>Sign Up</h2>
+          <input name="signupName" type="text" placeholder="username" />
+          <input name="signupEmail" type="email" placeholder="email" />
+          <input name="signupPassword" type="password" placeholder="password" />
+          <button id="signupButton" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const loginTab = document.getElementById("loginSlider");
+      const signupTab = document.getElementById("signupSlider");
+
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+
+      let loginIsCurrentlyShown = true;
+
+      function changeUI() {
+        if (loginIsCurrentlyShown) {
+          loginForm.style.display = "flex";
+          signupForm.style.display = "none";
+
+          loginTab.textContent = "Login";
+          signupTab.textContent = "Signup";
+
+          loginTab.classList.add("active");
+          signupTab.classList.add("inactive");
+
+          loginTab.classList.remove("inactive");
+          signupTab.classList.remove("active");
+        } else {
+          loginForm.style.display = "none";
+          signupForm.style.display = "flex";
+
+          loginTab.textContent = "Login";
+          signupTab.textContent = "Signup";
+
+          signupTab.classList.add("active");
+          loginTab.classList.add("inactive");
+
+          signupTab.classList.remove("inactive");
+          loginTab.classList.remove("active");
+        }
+      }
+
+      signupTab.addEventListener("click", () => {
+        if (!loginIsCurrentlyShown) {
+          return;
+        }
+
+        loginIsCurrentlyShown = false;
+        changeUI();
+      });
+
+      loginTab.addEventListener("click", () => {
+        if (loginIsCurrentlyShown) {
+          return;
+        }
+
+        loginIsCurrentlyShown = true;
+        changeUI();
+      });
+
+      loginForm.classList.add("fade");
+      signupForm.classList.add("fade");
+
+      changeUI();
+    </script>
+  </body>
+</html>
