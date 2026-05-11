@@ -51,6 +51,21 @@ app.use(session({
 // TODO tasks for login:
 // - Add joi to prevent nosql injection
 
+const fs = require("fs");
+const path = require("path");
+
+app.get("/debug-files", (req, res) => {
+  const dir = path.join(__dirname, "public/resource/slideshow");
+
+  fs.readdir(dir, (err, files) => {
+    if (err) {
+      return res.json({ error: err.message });
+    }
+
+    res.json(files);
+  });
+});
+
 app.get("/", (req, res) => {
     res.redirect("/html/index.html");
 });
