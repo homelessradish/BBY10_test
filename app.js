@@ -51,9 +51,6 @@ app.use(session({
 // TODO tasks for login:
 // - Add joi to prevent nosql injection
 
-const fs = require("fs");
-const path = require("path");
-
 app.get("/", (req, res) => {
     res.redirect("/html/index.html");
 });
