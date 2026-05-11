@@ -4,7 +4,7 @@ let currentIndex = 0;
 const imgEl = document.getElementById("slide-image");
 
 async function loadSlideshow() {
-  const res = await fetch("../resource/slideshow/fileCollect.json");
+  const res = await fetch(__dirname + "/resource/slideshow/fileCollect.json");
   const data = await res.json();
 
   images = data.images.map(
